@@ -19,6 +19,7 @@ User.init(
 
         email: {
             type: DataTypes.STRING,
+            unique: true,
             allowNull: false,
 
             validate: {
@@ -43,17 +44,13 @@ User.init(
             updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
             return updatedUserData;
             }
-        }
-    },
-
-    {
+        },
         sequelize,
         modelName: "user",
         underscored: true,
         timestamps: false,
         freezeTableName: true
-    }
-
+    },
 )
 
 module.exports = User;
