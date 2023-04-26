@@ -1,0 +1,29 @@
+{
+  "name": "bc-project-two",
+  "version": "1.0.0",
+  "description": "Second project for boot camp",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xwyckoff/BC-Project-Two.git"
+  },
+  "author": "Xander Wyckoff, Clay Moyer, Janiece Lewis, Matt Hough, Madi Schneider",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xwyckoff/BC-Project-Two/issues"
+  },
+  "homepage": "https://github.com/xwyckoff/BC-Project-Two#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "connect-session-sequelize": "^7.1.6",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.7",
+    "express-session": "^1.17.3",
+    "mysql2": "^3.2.4",
+    "sequelize": "^6.31.0"
+  }
+}
