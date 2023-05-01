@@ -19,15 +19,12 @@ Receipt.init(
         key:'id'
       }
     },
-    created_at: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
+    
   
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: "receipt",
