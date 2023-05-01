@@ -8,6 +8,21 @@
     <title>{{title}}</title>
 </head>
 <body>
+    <header>
+        <div class="ui secondary pointing menu">
+            <a class="item" href="/">Home</a>
+            <a class="item" href="/products">Products</a>
+            {{#if logged_in}}
+            <div class="right menu">
+                <a class="ui item" id="logout">Logout</a>
+            </div>
+            {{else}}
+            <div class="right menu">
+                <a class="ui item" id="login">Login</a>
+            </div>
+            {{/if}}
+        </div>
+    </header>
     {{{body}}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"></script>
 </body>
