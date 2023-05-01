@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Receipt_item extends Model {}
+class ReceiptItem extends Model {}
 
-Receipt_item.init(
+ReceiptItem.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -14,10 +14,19 @@ Receipt_item.init(
     receipt_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      references:{
+        model:'receipt',
+        key:'id'
+      }
     },
     product_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+    //   bring back after product table is created.
+    //   references:{
+    //     model:'product',
+    //     key:'id'
+    //   }
     },
     quantity: {
         type: DataTypes.INTEGER,
@@ -34,4 +43,4 @@ Receipt_item.init(
   }
 );
 
-module.exports = Receipt_item;
+module.exports = ReceiptItem;
