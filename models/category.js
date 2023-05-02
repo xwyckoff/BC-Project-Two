@@ -11,12 +11,12 @@ Category.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    brand_name: {
+    category_name: {
       type: DataTypes.STRING,
       allowNull: false,
       references:{
         model:'products',
-        key:'id'
+        key:'category_id'
       }
     },
     

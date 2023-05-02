@@ -16,7 +16,7 @@ Brand.init(
       allowNull: false,
       references:{
         model:'products',
-        key:'id'
+        key:'brand_id'
       }
     },
     
