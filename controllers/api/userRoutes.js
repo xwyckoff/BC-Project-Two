@@ -7,7 +7,14 @@ router.get('/', (req, res) => {
 })
 router.post('/', async (req, res) => {
     try {
-      const userData = await User.create(req.body);
+      const {username, email, password} = req.body;
+      const userData = await User.create(
+        {
+            username: username,
+            email: email,
+            password: password
+        }
+      );
   
       req.session.save(() => {
         req.session.user_id = userData.id;
@@ -19,5 +26,32 @@ router.post('/', async (req, res) => {
       res.status(400).json(err);
     }
   });
+
+router.get('/login', async (req, res) => {
+    try {
+        //see if we can find a user with the provided username
+        const user = await User.findOne({ where: { username: req.body.username}});
+        //if the user cannot be found, display an error
+        if(!user) {
+            res.status(400).json({message: 'Incorrect email or password, please try again!'});
+            return;
+        }
+
+        //check that the password the user entered is valid
+        const validPassword = user.checkPassword(req.body.password);
+        //if the password is not valid, display an error
+        if(!validPassword) {
+            res.status(400).json({message: 'Incorrect email or password, please try again!'});
+            return;
+        }
+
+        req.session.save(() => {
+            req.session.user_id = user.id;
+            req.session.logged_in = true;
+        })
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
 
 module.exports = router;
