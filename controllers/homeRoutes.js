@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
-    res.render('home', {title: 'TechBuilds', home_active: true});
+    res.render('home', {title: 'TechBuilds', home_active: true, logged_in: req.session.logged_in, username: req.session.username});
 })
 
 router.get('/products', (req, res) => {

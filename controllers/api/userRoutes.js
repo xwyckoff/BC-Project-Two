@@ -2,9 +2,9 @@ const router = require('express').Router();
 
 const {User,Receipt,ReceiptItem} = require('../../models')
 
-router.get('/', (req, res) => {
-    res.send('test');
-})
+// router.get('/', (req, res) => {
+//     res.send('test');
+// })
 router.post('/', async (req, res) => {
     try {
       const {username, email, password} = req.body;
@@ -50,10 +50,26 @@ router.post('/login', async (req, res) => {
             req.session.user_id = user.id;
             req.session.username = user.username;
             req.session.logged_in = true;
+
+            res.json('Logged in successfully');
         })
+    } catch (err) {
+        res.status(400).json(err);
+    }
+})
+
+router.post('/logout', async (req, res) => {
+    try {
+        if(req.session.logged_in) {
+            req.session.destroy(() => {
+                res.status(204).end();
+            });
+        } else {
+            res.status(404).end();
+        }
     } catch (err) {
         res.status(500).json(err);
     }
-})
+});
 
 module.exports = router;
