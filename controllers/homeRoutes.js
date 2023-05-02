@@ -12,4 +12,14 @@ router.get('/login', (req, res) => {
     res.render('login', {title: 'Login', login_active: true});
 })
 
-module.exports = router;
+router.get('/cart', async (req, res) => {console.log('inside the cart')
+    try {
+      
+      // Pass serialized data and session flag into template
+      res.render('cart');
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+  module.exports=router
