@@ -5,15 +5,19 @@ router.get('/', (req, res) => {
 })
 
 router.get('/products', (req, res) => {
-    res.render('products', {title: 'Products', products_active: true});
+    res.render('products', {title: 'Products', products_active: true, logged_in: req.session.logged_in});
 })
 
 router.get('/aboutus', (req, res) => {
-  res.render('aboutus', {title: 'About Us', aboutus_active: true});
+  res.render('aboutus', {title: 'About Us', aboutus_active: true, logged_in: req.session.logged_in});
 })
 
 router.get('/login', (req, res) => {
-    res.render('login', {title: 'Login', login_active: true});
+    res.render('login', {title: 'Login', login_active: true, logged_in: req.session.logged_in});
+})
+
+router.get('/register', (req, res) => {
+  res.render('register', {title: 'Register', login_active: true, logged_in: req.session.logged_in})
 })
 
 router.get('/cart', async (req, res) => {console.log('inside the cart')
