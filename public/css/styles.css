@@ -1,0 +1,29 @@
+#hero {
+    background-image: url('/assets/hero_1.jpg');
+    background-size:cover;
+    height: 50%;
+    margin-top:0;
+    background-repeat: no-repeat;
+    filter: blur(4px);
+    border: none;
+    margin-bottom: 50px;
+
+}
+
+#hero-text {
+    position: relative;
+    text-align: center;
+    color:black;
+    font-size: 50px;
+    top:-30%;
+    font-weight: bold;
+}
+
+#navbar {
+    background-color: #242424;
+}
+
+body {
+    background-color: #242424 !important;
+    color: white !important;  
+}

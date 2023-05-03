@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css">
     <title>{{title}}</title>
 </head>
 <body>
     <header>
-        <div class="ui blue secondary pointing massive menu">
+        <div class="ui fixed grey inverted secondary pointing massive menu" id="navbar">
             <div class="left menu"><h1 class="ui item">TechBuilds</h1></div>
             <a class="item {{#if home_active}} active {{/if}}" href="/">Home</a>
             <a class="item {{#if products_active}} active {{/if}}" href="/products">Products</a>
+            <a class="item {{#if aboutus_active}} active {{/if}}" href="/aboutus">About Us</a>
             {{#if logged_in}}
             <div class="right menu">
                 <a class="ui item" id="logout">Logout</a>
@@ -24,6 +26,7 @@
             {{/if}}
         </div>
     </header>
+    <div class="ui top attached center aligned header" id="hero"></div>
     {{{body}}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"></script>
