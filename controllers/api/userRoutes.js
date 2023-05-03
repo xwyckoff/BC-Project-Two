@@ -2,9 +2,6 @@ const router = require('express').Router();
 
 const {User,Receipt,ReceiptItem} = require('../../models')
 
-// router.get('/', (req, res) => {
-//     res.send('test');
-// })
 router.post('/', async (req, res) => {
     try {
       const {username, email, password} = req.body;
