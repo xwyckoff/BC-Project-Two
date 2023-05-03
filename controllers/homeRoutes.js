@@ -8,6 +8,10 @@ router.get('/products', (req, res) => {
     res.render('products', {title: 'Products', products_active: true});
 })
 
+router.get('/aboutus', (req, res) => {
+  res.render('aboutus', {title: 'About Us', aboutus_active: true});
+})
+
 router.get('/login', (req, res) => {
     res.render('login', {title: 'Login', login_active: true});
 })
