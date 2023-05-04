@@ -19,13 +19,16 @@ router.get('/login', (req, res) => {
 router.get('/cart', async (req, res) => {console.log('inside the cart')
     try {
       // Get all projects and JOIN with user data
-    const projectData = await Cart.findAll({
-      include: [
-        {
-          model: Product,
-          attributes: ['name'],
-        },
-      ],
+    const productData = await Cart.findAll({
+      where:{
+        id:req.session.user_id
+      }
+      // include: [
+      //   {
+      //     model: Product,
+      //     attributes: ['name'],
+      //   },
+      // ],
     });
 
     // Serialize data so the template can read it
@@ -35,6 +38,7 @@ router.get('/cart', async (req, res) => {console.log('inside the cart')
       res.render('cart',{products});
     } catch (err) {
       res.status(500).json(err);
+      console.log(err)
     }
   });
 
