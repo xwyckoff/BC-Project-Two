@@ -23,6 +23,26 @@
     background-color: #242424;
 }
 
+#cart-icon {
+margin: -5px;
+margin-top: 42px;
+}
+
+
+
+.shoppingcart{
+    margin:50px;
+    margin-left: 200px;
+    padding: auto;
+    /* margin-right: 80px; */
+    color:rgb(251, 255, 0);
+}
+
+.cart-footer{
+    color: rgb(43, 117, 221);
+    margin-bottom: 10px;
+}
+
 body {
     background-color: #242424 !important;
     color: white !important;  
