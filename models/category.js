@@ -14,17 +14,14 @@ Category.init(
     category_name: {
       type: DataTypes.STRING,
       allowNull: false,
-      references:{
-        model:'products',
-        key:'category_id'
-      }
+      
     },
     
   
   },
   {
     sequelize,
-    timestamps: true,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: "category",
