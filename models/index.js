@@ -11,7 +11,7 @@ const Brand = require('./Brand');
 
 
 User.hasMany(Receipt, {
-    foreignKey: 'user_id'
+    onUpdate: 'CASCADE'
 });
 
 Receipt.belongsTo(User,{
@@ -22,7 +22,7 @@ ReceiptItem.belongsTo(Receipt,{
     foreignKey:'receipt_id'
 });
 Receipt.hasMany(ReceiptItem,{
-    foreignKey:'receipt_id'
+    onUpdate: 'CASCADE'
 });
 Cart.belongsTo(User,{
     foreignKey:'user_id'
@@ -32,15 +32,15 @@ CartItem.belongsTo(Cart,{
     foreignKey:'cart_id'
 });
 Cart.hasMany(CartItem,{
-    foreignKey:'cart_id'
+    onUpdate: 'CASCADE'
 });
-Products.hasMany(ReceiptItem,{
+Products.belongsTo(ReceiptItem,{
     foreignKey:'product_id'
 });
-Brand.hasMany(Products,{
+Brand.belongsTo(Products,{
     foreignKey:'brand_id'
 });
-Category.hasMany(Products,{
+Category.belongsTo(Products,{
     foreignKey:'category_id'
 });
 module.exports = {User,Receipt,ReceiptItem,Cart,CartItem,Products,Brand,Category}
