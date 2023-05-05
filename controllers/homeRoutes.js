@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {Cart,Product}=require('../models')
+const {Cart, Products} = require('../models')
 router.get('/', (req, res) => {
     res.render('home', {title: 'TechBuilds', home_active: true, logged_in: req.session.logged_in, username: req.session.username});
 })
@@ -26,19 +26,19 @@ router.get('/cart', async (req, res) => {console.log('inside the cart')
       // Get all projects and JOIN with user data
     const productData = await Cart.findAll({
       where:{
-        id:req.session.user_id
+        user_id: req.session.user_id
       },
       include: [
         {
-          model: products,
-          attributes: ['name'],
+          model: 'products',
+          attributes: ['product_name'],
         },
         {
-          model: brand,
+          model: 'brand',
           attributes:['brand_name'],
         },
         {
-          model: category,
+          model: 'category',
           attributes:['category_name'],
         }
       ],
