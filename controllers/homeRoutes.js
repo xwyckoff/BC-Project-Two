@@ -30,15 +30,15 @@ router.get('/cart', async (req, res) => {console.log('inside the cart')
       },
       include: [
         {
-          model: products,
-          attributes: ['name'],
+          model: 'products',
+          attributes: ['product_name'],
         },
         {
-          model: brand,
+          model: 'brand',
           attributes:['brand_name'],
         },
         {
-          model: category,
+          model: 'category',
           attributes:['category_name'],
         }
       ],
