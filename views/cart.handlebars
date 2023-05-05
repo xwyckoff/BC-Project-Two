@@ -1,13 +1,13 @@
  <div class='shoppingcart'><h1>Items in cart  <i class="shopping cart icon" id="cart-icon"></i></h1>
 
-{{!-- <ul>
+<ul>
     <li><i class="check icon"></i>product details will go here</li>
     {{#each products as |product| }}
-    <li>item {{product.name}} quantity{{product.quantity}} price {{product.price}}</li><br>
+    <li>item {{product.product.product_name}} quantity {{product.product.quantity}} price {{product.product.product_price}}</li><br>
     {{/each}}
-</ul><br> --}}
+</ul><br>
 
-{{!-- {{#each products as |product| }} --}}
+{{#each products as |product| }}
 <div class="ui inverted segment">
   <div class="ui inverted relaxed divided list">
     <div class="item">
@@ -15,7 +15,7 @@
         <div class="header">Product Name </div>
         category|brand|description| quantity | price |
       </div><br>
- {{!-- {{/each}}    --}}
+ {{/each}}   
 
 
 <p class="cart-footer">Thanks for shopping with TechBuilds.</p>

@@ -15,18 +15,17 @@ CartItem.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       // references:{
-      //   model:'receipt',
+      //   model:'cart',
       //   key:'id'
       // }
     },
     product_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
     //   bring back after product table is created.
-    //   references:{
-    //     model:'product',
-    //     key:'id'
-    //   }
+      // references:{
+      //   model:'products',
+      //   key:'id'
+      // }
     },
     quantity: {
         type: DataTypes.INTEGER,

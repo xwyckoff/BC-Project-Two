@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {Cart, Products} = require('../models')
+const {Cart, Products, Brand, Category, CartItem} = require('../models')
 router.get('/', (req, res) => {
     res.render('home', {title: 'TechBuilds', home_active: true, logged_in: req.session.logged_in, username: req.session.username});
 })
@@ -24,32 +24,32 @@ router.get('/register', (req, res) => {
   res.render('register', {title: 'Register', login_active: true, logged_in: req.session.logged_in})
 })
 
-router.get('/cart', async (req, res) => {console.log('inside the cart')
+router.get('/cart', async (req, res) => {
     try {
       // Get all projects and JOIN with user data
-    const productData = await Cart.findAll({
-      where:{
+    const cartData = await Cart.findAll({
+      where: {
         user_id: req.session.user_id
+      }
+    })
+
+    //find the cart that is associated to the user that made the request
+    const cartUserID = cartData[0].get().id;
+    console.log(cartUserID);
+    
+    const productData = await CartItem.findAll({
+      where: {
+        cart_id: cartUserID
       },
-      include: [
+      include: 
         {
-          model: 'products',
-          attributes: ['product_name'],
-        },
-        {
-          model: 'brand',
-          attributes:['brand_name'],
-        },
-        {
-          model: 'category',
-          attributes:['category_name'],
+          model: Products,
         }
-      ],
     });
 
     // Serialize data so the template can read it
-    const products = productData.map((product) => product.get({ plain: true }));
- 
+    const products = productData.map((product) => product.get({plain: true}));
+    console.log(products);
       // Pass serialized data and session flag into template
       res.render('cart',{products});
     } catch (err) {
