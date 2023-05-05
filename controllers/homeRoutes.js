@@ -12,6 +12,9 @@ router.get('/aboutus', (req, res) => {
   res.render('aboutus', {title: 'About Us', aboutus_active: true, logged_in: req.session.logged_in});
 })
 
+router.get('/contactus', (req, res) => {
+  res.render('contactus', {title: 'Contact Us', contactus_active: true, logged_in: req.session.logged_in})
+})
 
 router.get('/login', (req, res) => {
     res.render('login', {title: 'Login', login_active: true, logged_in: req.session.logged_in});
