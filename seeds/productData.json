@@ -1,0 +1,27 @@
+[
+    {
+        "product_name":"CPU",
+        "product_price":99.99,
+        "product_description":"generic cpu",
+        "quantity":1,
+        "brand_id":1,
+        "category_id":2
+
+    },
+    {
+        "product_name":"CPU",
+        "product_price":99.99,
+        "product_description":"generic cpu",
+        "quantity":1,
+        "brand_id":1,
+        "category_id":2
+      },
+      {
+        "product_name":"CPU",
+        "product_price":99.99,
+        "product_description":"generic cpu",
+        "quantity":1,
+        "brand_id":1,
+        "category_id":2
+      }
+  ]
