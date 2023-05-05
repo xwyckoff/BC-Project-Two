@@ -26,13 +26,21 @@ router.get('/cart', async (req, res) => {console.log('inside the cart')
     const productData = await Cart.findAll({
       where:{
         id:req.session.user_id
-      }
-      // include: [
-      //   {
-      //     model: Product,
-      //     attributes: ['name'],
-      //   },
-      // ],
+      },
+      include: [
+        {
+          model: products,
+          attributes: ['name'],
+        },
+        {
+          model: brand,
+          attributes:['brand_name'],
+        },
+        {
+          model: category,
+          attributes:['category_name'],
+        }
+      ],
     });
 
     // Serialize data so the template can read it
