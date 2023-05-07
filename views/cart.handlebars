@@ -1,10 +1,11 @@
- <div class='shoppingcart'><h1>Items in cart  <i class="shopping cart icon" id="cart-icon"></i></h1>
-
-{{#each products as |product| }}
-  {{> cart-item product=product}}
-{{/each}}   
-
-
+ <div class='shoppingcart'><h1>Items in Cart <i class="shopping cart icon" id="cart-icon"></i></h1>
+<div class="ui four column grid">
+    {{#each products as |product| }}
+    <div class="column">
+      {{> cart-item product=product}}
+    </div>
+    {{/each}}
+</div>
+<br>
 <p class="cart-footer">Thanks for shopping with TechBuilds.</p>
-
 </div>
