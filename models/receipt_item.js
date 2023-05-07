@@ -14,19 +14,10 @@ ReceiptItem.init(
     receipt_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      // references:{
-      //   model:'receipt',
-      //   key:'id'
-      // }
     },
     product_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-    //   bring back after product table is created.
-    //   references:{
-    //     model:'product',
-    //     key:'id'
-    //   }
     },
     quantity: {
         type: DataTypes.INTEGER,

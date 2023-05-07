@@ -26,7 +26,7 @@ router.get('/register', (req, res) => {
 
 router.get('/cart', async (req, res) => {
     try {
-      // Get all projects and JOIN with user data
+      // find the cart that corresponds to the current user's ID
     const cartData = await Cart.findAll({
       where: {
         user_id: req.session.user_id

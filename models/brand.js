@@ -14,10 +14,7 @@ Brand.init(
     brand_name: {
       type: DataTypes.STRING,
       allowNull: false,
-      // references:{
-      //   model:'products',
-      //   key:'brand_id'
-      // }
+
     },
     
   
