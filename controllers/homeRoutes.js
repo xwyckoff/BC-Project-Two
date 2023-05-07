@@ -51,9 +51,9 @@ router.get('/cart', async (req, res) => {
     //const categoryId = productData
     // Serialize data so the template can read it
     const products = productData.map((product) => product.get({plain: true}));
-    console.log(products[0].product.category.category_name);
+    console.log(products);
       // Pass serialized data and session flag into template
-      res.render('cart',{products});
+      res.render('cart',{products, logged_in: req.session.logged_in, cart: true});
     } catch (err) {
       res.status(500).json(err);
       console.log(err)

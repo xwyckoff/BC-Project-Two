@@ -18,8 +18,7 @@
             <a class="item {{#if contactus_active}} active {{/if}}" href="/contactus">Contact Us</a>
             {{#if logged_in}}
             <div class="right menu">
-                <a href="/cart"><i class="shopping cart icon" id="cart-icon"></i></a>
-                <a class="ui item" id="logout">Logout</a>
+                {{#if cart}}{{else}}<a href="/cart"><i class="shopping cart icon" id="cart-icon"></i></a>{{/if}}<a class="ui item" id="logout">Logout</a>
             </div>
             {{else}}
             <div class="right menu">
