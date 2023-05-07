@@ -35,7 +35,6 @@ router.get('/cart', async (req, res) => {
 
     //find the cart that is associated to the user that made the request
     const cartUserID = cartData[0].get().id;
-    console.log(cartUserID);
     
     const productData = await CartItem.findAll({
       where: {
@@ -43,13 +42,16 @@ router.get('/cart', async (req, res) => {
       },
       include: 
         {
-          model: Products,
+          all: true,
+          nested: true
         }
     });
 
+    //console.log(productData[0].get().product.dataValues);
+    //const categoryId = productData
     // Serialize data so the template can read it
     const products = productData.map((product) => product.get({plain: true}));
-    console.log(products);
+    console.log(products[0].product.category.category_name);
       // Pass serialized data and session flag into template
       res.render('cart',{products});
     } catch (err) {

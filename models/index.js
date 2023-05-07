@@ -45,7 +45,8 @@ Cart.hasMany(CartItem,{
 Products.belongsTo(ReceiptItem,{
     foreignKey:'product_id'
 });
-Brand.belongsTo(Products,{
+
+Products.belongsTo(Brand, {
     foreignKey:'brand_id'
 });
 Products.belongsTo(Category,{
