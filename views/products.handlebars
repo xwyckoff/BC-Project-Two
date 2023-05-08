@@ -1,0 +1,9 @@
+<div id="hero-text">Products</div>
+<div class="ui four column grid">
+{{#each products as |product| }}
+<div class="column">
+    {{> product-card product=product}}
+</div> 
+{{/each}}
+<script src="/js/cartAdd.js"></script>
+</div>

@@ -9,9 +9,10 @@
                 {{product.product.product_description}}
             </div>
             <h5 class="ui sub header">{{product.product.product_price}}</h5>
+            <h5 class="ui sub header">Quantity: {{product.quantity}}</h5>
         </div>
     </div>
-    <div class="ui bottom attached button">
+    <div class="ui bottom attached button" id="{{product.id}}" onclick="removeFromCart({{product.id}})">
         <i class="trash icon"></i>
         Remove from Cart
     </div>
