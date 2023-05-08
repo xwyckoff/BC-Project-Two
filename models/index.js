@@ -1,11 +1,11 @@
 const User = require('./User');
 const Cart = require('./cart');
-const Receipt = require('./Receipt');
-const Category = require('./Category');
+const Receipt = require('./receipt');
+const Category = require('./category');
 const Brand = require('./brand');
 const ReceiptItem = require('./receipt_item');
 const CartItem = require('./cart_item');
-const Products = require('./Products');
+const Products = require('./products');
 
 
 
