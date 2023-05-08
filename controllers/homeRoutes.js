@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Cart, Products, Brand, Category, CartItem } = require('../models')
-router.get('/', async(req, res) => {
+router.get('/', (req, res) => {
   try {
     
     res.render('home', { title: 'TechBuilds', home_active: true, logged_in: req.session.logged_in, username: req.session.username });
