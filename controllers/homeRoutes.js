@@ -1,11 +1,13 @@
 const router = require('express').Router();
-const {Cart, Products} = require('../models')
+const {Cart, Products, Brand, Category, CartItem} = require('../models')
 router.get('/', (req, res) => {
     res.render('home', {title: 'TechBuilds', home_active: true, logged_in: req.session.logged_in, username: req.session.username});
 })
 
-router.get('/products', (req, res) => {
-    res.render('products', {title: 'Products', products_active: true, logged_in: req.session.logged_in});
+router.get('/products', async(req, res) => {
+    const products = (await Products.findAll({include:{all: true, nested:true}})).map(product => product.get());
+    console.log(products);
+    res.render('products', {title: 'Products', products_active: true, logged_in: req.session.logged_in, products});
 })
 
 router.get('/aboutus', (req, res) => {
@@ -24,38 +26,47 @@ router.get('/register', (req, res) => {
   res.render('register', {title: 'Register', login_active: true, logged_in: req.session.logged_in})
 })
 
-router.get('/cart', async (req, res) => {console.log('inside the cart')
+router.get('/cart', async (req, res) => {
+  let cartUserID;
     try {
-      // Get all projects and JOIN with user data
-    const productData = await Cart.findAll({
-      where:{
+      // find the cart that corresponds to the current user's ID
+    const cartData = await Cart.findAll({
+      where: {
         user_id: req.session.user_id
-      },
-      include: [
-        {
-          model: 'products',
-          attributes: ['product_name'],
-        },
-        {
-          model: 'brand',
-          attributes:['brand_name'],
-        },
-        {
-          model: 'category',
-          attributes:['category_name'],
-        }
-      ],
-    });
+      }
+    })
+    //see if the cart exists for the user, if not create a new one
+    if(cartData.length != 0) {
+      cartUserID = cartData[0].get().id;
+    } else {
+      const newCart = Cart.create({
+        user_id: req.session.user_id
+      })
 
+      cartUserID = req.session.user_id;
+    }
+    //find the cart that is associated to the user that made the request
+    
+    const productData = await CartItem.findAll({
+      where: {
+        cart_id: cartUserID
+      },
+      include: 
+        {
+          all: true,
+          nested: true
+        }
+    });
     // Serialize data so the template can read it
-    const products = productData.map((product) => product.get({ plain: true }));
- 
+    const products = productData.map((product) => product.get({plain: true}));
+    console.log(products);
       // Pass serialized data and session flag into template
-      res.render('cart',{products});
+      res.render('cart',{products, logged_in: req.session.logged_in, cart: true});
     } catch (err) {
       res.status(500).json(err);
       console.log(err)
     }
   });
+
 
   module.exports=router

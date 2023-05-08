@@ -1,23 +1,12 @@
- <div class='shoppingcart'><h1>Items in cart  <i class="shopping cart icon" id="cart-icon"></i></h1>
-
-{{!-- <ul>
-    <li><i class="check icon"></i>product details will go here</li>
+ <div class='shoppingcart'><h1>Items in Cart <i class="shopping cart icon" id="cart-icon"></i></h1>
+<div class="ui four column grid">
     {{#each products as |product| }}
-    <li>item {{product.name}} quantity{{product.quantity}} price {{product.price}}</li><br>
+    <div class="column">
+      {{> cart-item product=product}}
+    </div>
     {{/each}}
-</ul><br> --}}
-
-{{!-- {{#each products as |product| }} --}}
-<div class="ui inverted segment">
-  <div class="ui inverted relaxed divided list">
-    <div class="item">
-      <div class="content">
-        <div class="header">Product Name </div>
-        category|brand|description| quantity | price |
-      </div><br>
- {{!-- {{/each}}    --}}
-
-
-<p class="cart-footer">Thanks for shopping with TechBuilds.</p>
-
 </div>
+<br>
+<p class="cart-footer">Thanks for shopping with TechBuilds.</p>
+</div>
+<script src="/js/cartRemove.js"></script>
