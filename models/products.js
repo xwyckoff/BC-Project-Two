@@ -20,7 +20,7 @@ Products.init(
       allowNull: false,
     },
     product_description: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT('long'),
         allowNull: false,
     },
     quantity: {

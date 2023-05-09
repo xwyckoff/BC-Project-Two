@@ -11,7 +11,6 @@ router.get('/', (req, res) => {
 
 router.get('/products', async (req, res) => {
   const products = (await Products.findAll({ include: { all: true, nested: true } })).map(product => product.get());
-  console.log(products);
   res.render('products', { title: 'Products', products_active: true, logged_in: req.session.logged_in, products });
 })
 
