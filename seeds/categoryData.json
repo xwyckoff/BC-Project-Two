@@ -1,13 +1,24 @@
 [
     
         {
-            "category_name": "motherboards"
+            "id":"1",
+            "category_name": "Motherboards"
         },
         {
+            "id":"2",
             "category_name": "CPUs"
         },
         {
-            "category_name": "Mice"
+            "id":"3",
+            "category_name": "GPUs"
+        },
+        {
+            "id":"4",
+            "category_name":"PSUs"
+        },
+        {
+            "id":"5",
+            "category_name":"RAM"
         }
     
   ]

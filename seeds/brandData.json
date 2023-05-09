@@ -1,11 +1,26 @@
 [
     {
+        "id":1,
         "brand_name": "Intel"
     },
     {
+        "id":2,
         "brand_name": "AMD"
     },
     {
+        "id":3,
         "brand_name": "Logitech"
+    },
+    {
+        "id":4,
+        "brand_name":"Asus"
+    },
+    {
+        "id":5,
+        "brand_name":"Nvidia"
+    },
+    {
+        "id":6,
+        "brand_name":"Corsair"
     }
 ]

@@ -1,27 +1,59 @@
 [
     {
-        "product_name":"CPU",
+        "product_name":"Core i9 13000k",
         "product_price":99.99,
-        "product_description":"generic cpu",
+        "product_description":"Max frequency: 5.80Ghz",
         "quantity":1,
         "brand_id":1,
         "category_id":2
 
     },
     {
-        "product_name":"CPU",
+        "product_name":"Ryzen 7 5800X3D",
         "product_price":99.99,
-        "product_description":"generic cpu",
+        "product_description":"Max frequency: 4.50Ghz",
         "quantity":1,
         "brand_id":1,
         "category_id":2
       },
       {
-        "product_name":"CPU",
+        "product_name":"ROG Strix B760-G",
         "product_price":99.99,
-        "product_description":"generic cpu",
+        "product_description":"Intel® B760 LGA 1700 white mATX motherboard with 12 + 1 power stages, DDR5 up to 7800 MT/s, PCIe 5.0 x16 SafeSlot with Q-Release, two PCIe 4.0 M.2 slots, WiFi 6E, 2.5G Ethernet, USB 3.2 Gen 2x2 Type-C®, Two-Way AI Noise Cancelation, and Aura Sync RGB lighting",
         "quantity":1,
-        "brand_id":1,
-        "category_id":2
+        "brand_id":4,
+        "category_id":1
+      },
+      {
+        "product_name":"GeForce RTX 4090",
+        "product_price":1599.00,
+        "product_description":"Powered by the NVIDIA Ada Lovelace architecture and comes with 24 GB of G6X memory to deliver the ultimate experience for gamers and creators.",
+        "quantity":1,
+        "brand_id":5,
+        "category_id":3
+      },
+      {
+        "product_name":"Radeon RX 7900 XTX",
+        "product_price":979.99,
+        "product_description":"Built on the groundbreaking AMD RDNA™ 3 architecture with chiplet technology, AMD Radeon™ RX 7900 XTX graphics deliver next-generation performance, visuals, and efficiency at 4K and beyond.",
+        "quantity":1,
+        "brand_id":2,
+        "category_id":3 
+      },
+      {
+        "product_name":"Vengance RGB RT 32GB (2 x 16GB)",
+        "product_price":99.99,
+        "product_description":"DDR4 RAM 3200MHz",
+        "quantity":1,
+        "brand_id":6,
+        "category_id":5
+      },
+      {
+        "product_name":"CX450",
+        "product_price":64.99,
+        "product_description":"450W Power supply",
+        "quantity":1,
+        "brand_id":6,
+        "category_id":4
       }
   ]
